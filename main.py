@@ -395,4 +395,5 @@ if __name__ == '__main__':
 
     # для одного объекта
     api.add_resource(record_resources.RecordResource, '/api/record/<int:record_id>')
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
