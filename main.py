@@ -7,6 +7,7 @@ from flask import redirect, make_response, jsonify
 
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_restful import reqparse, abort, Api, Resource
+from flask_migrate import Migrate
 
 from flask_socketio import SocketIO, send
 
@@ -52,6 +53,9 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 api = Api(app)
 client = Celery(app.name)
 client.config_from_object("celeryconfig")
+db_session.global_init("postgresql://yzaskcyajggyta:11146148bccbc41403054de1201a8af3a7b87a5d0787e79a1fa85c356aa5ee9f@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/d78b78ilt2higb")
+from data.db_session import SqlAlchemyBase as db
+migrate = Migrate(app, db)
 
 
 class ContextTask(client.Task):
@@ -397,7 +401,6 @@ def search():
 
 
 if __name__ == '__main__':
-    db_session.global_init("db/help.db")
     # для списка объектов
     api.add_resource(record_resources.RecordListResource, '/api/records')
 
