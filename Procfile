@@ -1,2 +1,1 @@
-web: python main.py
-celery1: celery -A main.client -l INFO -P gevent
+web: python main.py; celery -A main.client -l INFO -P gevent
