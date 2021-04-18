@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section id="home" class="home">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="main-banner">
+								<div class="d-sm-flex justify-content-between">
+									<div data-aos="zoom-in-up">
+										<div class="banner-title">
+												<h3 class="font-weight-medium">Найди помощь<br> в любой области
+											</h3>
+										</div>
+										<p class="mt-3">Помощь.ру - это сервис, который предоставляет помощь<br> в самых разных сферах. От помощи в дизайне,<br> программировании до составления сюжета для вашего видео!
+										</p>
+										<a href="#" class="btn btn-secondary mt-3">Узнать больше</a>
+									</div>
+									<div class="mt-5 mt-lg-0">
+										<img src="{{url_for('static', filename='images/group.png')}}" alt="marsmello" class="img-fluid" data-aos="zoom-in-up">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="our-services" id="services">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<h3 class="font-weight-medium text-dark mb-5">Помощь.ру это</h3>
+						</div>
+					</div>
+					<div class="row" data-aos="fade-up">
+						<div class="col-sm-4 text-center text-lg-left">
+							<div class="services-box" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+								<img src="{{url_for('static', filename='images/design-development.svg')}}" alt="integrated-marketing" data-aos="zoom-in">
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">
+									Качество
+								</h6>
+								<p>Вы сможете найти уже готовые, проверенные решения в вашей области
+								</p>
+							</div>
+						</div>
+						<div class="col-sm-4 text-center text-lg-left">
+							<div class="services-box"   data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+								<img src="{{url_for('static', filename='images/integrated-marketing.svg')}}" alt="design-development" data-aos="zoom-in">
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Быстрота
+								</h6>
+								<p>Своевременная и быстрая помощь - это то, что необходимо вам
+								</p>
+							</div>
+						</div>
+						<div class="col-sm-4 text-center text-lg-left">
+							<div class="services-box" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+								<img src="{{url_for('static', filename='images/digital-strategy.svg')}}" alt="digital-strategy" data-aos="zoom-in">
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Сообщество
+								</h6>
+								<p>Наш сервис имеет большое количество знающих экспертов
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="our-process" id="about">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6" data-aos="fade-up">
+							<h5 class="text-dark">Наш рабочий процесс</h5>
+							<h3 class="font-weight-medium text-dark">Мы помогаем вам реализовывать все ваши идеи</h3>
+							<h5 class="text-dark mb-3">С нами вы сможете</h5>
+							<div class="d-flex justify-content-start mb-3">
+								<img src="{{url_for('static', filename='images/tick.png')}}" alt="tick" class="mr-3 tick-icon"  >
+								<p class="mb-0">Проконсультировться с опытными экспертами</p>
+							</div>
+							<div class="d-flex justify-content-start mb-3">
+								<img src="{{url_for('static', filename='images/tick.png')}}" alt="tick" class="mr-3 tick-icon"  >
+								<p class="mb-0">Получить новые знания</p>
+							</div>
+							<div class="d-flex justify-content-start">
+								<img src="{{url_for('static', filename='images/tick.png')}}" alt="tick" class="mr-3 tick-icon"  >
+								<p class="mb-0">Решить быстро трудные вопросы</p>
+							</div>
+						</div>
+						<div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+							<img src="{{url_for('static', filename='images/idea.png')}}" alt="idea" class="img-fluid">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="our-projects" id="projects">
+				<div class="container">
+					<div class="row mb-5">
+						<div class="col-sm-12">
+							<div class="d-sm-flex justify-content-between align-items-center mb-2">
+								<h3 class="font-weight-medium text-dark ">
+									Лучшие работы
+								</h3>
+								<div><a href="#" class="btn btn-outline-primary">View more</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mb-5" data-aos="fade-up">
+					<div class="owl-carousel-projects owl-carousel owl-theme">
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider1.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider2.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider3.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider4.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider5.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider1.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider2.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider3.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider4.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider5.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider1.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider2.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider3.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider4.jpg')}}" alt="slider">
+						</div>
+						<div class="item">
+							<img src="{{url_for('static', filename='images/carousel/slider5.jpg')}}" alt="slider">
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row pt-5 mt-5 pb-5 mb-5">
+						<div class="col-sm-3">
+							<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
+								<img src="{{url_for('static', filename='images/satisfied-client.svg')}}"
+                                     alt="satisfied-client" class="mr-3">
+								<div>
+									<h4 class="font-weight-bold text-dark mb-0"><span class="scVal">0</span>%</h4>
+									<h5 class="text-dark mb-0">Довольных пользователей</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
+								<img src="{{url_for('static', filename='images/finished-project.svg')}}"
+                                     alt="satisfied-client" class="mr-3">
+								<div>
+									<h4 class="font-weight-bold text-dark mb-0"><span class="fpVal">0</span></h4>
+									<h5 class="text-dark mb-0">Законченных проектов</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
+								<img src="{{url_for('static', filename='images/team-members.svg')}}" alt="Team Members" class="mr-3">
+								<div>
+									<h4 class="font-weight-bold text-dark mb-0"><span class="tMVal">0</span></h4>
+									<h5 class="text-dark mb-0">Работниоков сервиса</h5>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
+								<img src="{{url_for('static', filename='images/our-blog-posts.svg')}}"
+                                     alt="Our Blog Posts" class="mr-3">
+								<div>
+									<h4 class="font-weight-bold text-dark mb-0"><span class="bPVal">0</span></h4>
+									<h5 class="text-dark mb-0">Записей</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="testimonial" id="testimonial">
+				<div class="container">
+					<div class="row  mt-md-0 mt-lg-4">
+						<div class="col-sm-6 text-white" data-aos="fade-up">
+							<p class="font-weight-bold mb-3">Отзывы</p>
+							<h3 class="font-weight-medium">Тысячи пользователей находят помощь от других экспертов</h3>
+							<ul class="flipster-custom-nav">
+								<li class="flipster-custom-nav-item">
+									<a href="javascript:;" class="flipster-custom-nav-link" title="0"></a>
+								</li>
+								<li class="flipster-custom-nav-item">
+									<a href="javascript:;" class="flipster-custom-nav-link"  title="1"></a>
+								</li>
+								<li class="flipster-custom-nav-item">
+									<a href="javascript:;" class="flipster-custom-nav-link active" title="2"></a>
+								</li>
+								<li class="flipster-custom-nav-item">
+									<a href="javascript:;" class="flipster-custom-nav-link"  title="3"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-sm-6" data-aos="fade-up">
+							<div id="testimonial-flipster">
+								<ul>
+									<li>
+										<div class="testimonial-item">
+											<img src="{{url_for('static', filename='images/testimonial/testimonial1.jpg')}}"
+                                                 alt="icon" class="testimonial-icons">
+											<p>Повседневная практика показывает, что реализация намеченных плановых заданий создаёт предпосылки для существующих финансовых и административных условий! Учитывая ключевые сценарии поведения, экономическая повестка сегодняшнего дня обеспечивает актуальность глубокомысленных рассуждений.
+											</p>
+											<h6 class="testimonial-author">Таисия Зубова</h6>
+											<p class="testimonial-destination">Эксперт</p>
+										</div>
+									</li>
+									<li>
+										<div class="testimonial-item">
+											<img src="{{url_for('static', filename='images/testimonial/testimonial2.jpg')}}"
+                                                 alt="icon" class="testimonial-icons">
+											<p>Банальные, но неопровержимые выводы, а также ключевые особенности структуры проекта, инициированные исключительно синтетически, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности.
+											</p>
+											<h6 class="testimonial-author">Данил Громов</h6>
+											<p class="testimonial-destination">Исследователь</p>
+										</div>
+									</li>
+									<li>
+										<div class="testimonial-item">
+											<img src="{{url_for('static', filename='images/testimonial/testimonial3.jpg')}}"
+                                                 alt="icon" class="testimonial-icons">
+											<p>Но сделанные на базе интернет-аналитики выводы представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть объединены в целые кластеры себе подобных.
+											</p>
+											<h6 class="testimonial-author">Лена Козлова</h6>
+											<p class="testimonial-destination">Эксперт</p>
+										</div>
+									</li>
+									<li>
+										<div class="testimonial-item">
+											<img src="{{url_for('static', filename='images/testimonial/testimonial4.jpg')}}"
+                                                 alt="icon" class="testimonial-icons">
+											<p>Прежде всего, сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующих условий активизации. Следует отметить, что глубокий уровень погружения, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для соответствующих условий активизации.
+											</p>
+											<h6 class="testimonial-author">Марк Жукин</h6>
+											<p class="testimonial-destination">Знающий</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="contactus" id="contact">
+				<div class="container">
+					<div class="row mb-5 pb-5">
+						<div class="col-sm-5" data-aos="fade-up" data-aos-offset="-500">
+							<img src="{{url_for('static', filename='images/contact.jpg')}}" alt="contact" class="img-fluid">
+						</div>
+						<div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
+							<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">Got A Problem</h3>
+							<h5 class="text-dark mb-5">Lorem ipsum dolor sit amet, consectetur pretium</h5>
+							<form>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<input type="text" class="form-control" id="name" placeholder="Name*">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<input type="email" class="form-control" id="mail" placeholder="Email*">
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<textarea name="message" id="message" class="form-control" placeholder="Message*" rows="5"></textarea>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<a href="#" class="btn btn-secondary">SEND</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+{% endblock %}

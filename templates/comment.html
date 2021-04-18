@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container container-padding">
+    <div class="row justify-content-center position-relative">
+        <div class="col-sm-6">
+            <div class="alert">
+                <h3 class="font-weight-light text-center text-dark mb-5">{{record.title}}</h3>
+                <p>{{record.description}}</p>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <form action="" method="post" enctype="multipart/form-data" novalidate>
+                {{ form.hidden_tag() }}
+                    {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12 ">
+                                {{ field.label() }}<br>
+                                {{ field(class="form-control", rows="15") }}<br>
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="d-flex justify-content-center p-5">
+                        {{ form.submit(type="submit", class="btn btn-primary") }}
+                    </div>
+            </form>
+            </div>
+    </div>
+</div>
+{% endblock %}

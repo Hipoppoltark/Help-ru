@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container container-padding">
+    <h3 class="font-weight-light text-center text-dark mb-5">Помоги другим</h3>
+    <div class="container">
+            <div class="row justify-content-center position-relative">
+                <div class="col-sm-6 position-static">
+                    <div class="p-3 record-block">
+                        {% if records %}
+                            <div class="title-record d-flex">
+                                <p class="mr-2">{{records[0][0].user.surname}} {{records[0][0].user.name}}</p>
+                                <p>{{records[0][0].title}}</p>
+                            </div>
+                            <p>{{records[0][1]}}</p>
+                            <a href="/record/{{records[0][0].id}}">Go somewhere</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-sm-4 position-static">
+                    <div class="info-block-profile">
+                        <div class="font-weight-medium text-dark info-block-profile-title">{{current_user.surname}}
+                        {{current_user.name}}</div>
+                        <div class="font-weight-light info-block-profile-points">
+                            Баллы: {{current_user.points}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% for (record, description) in records[1:] %}
+            <div class="row justify-content-center position-relative">
+                <div class="col-sm-6 position-static">
+                    <div class="p-3 record-block">
+                        <div class="title-record d-flex">
+                            <p class="mr-2">{{record.user.surname}} {{record.user.name}}</p>
+                            <p>{{record.title}}</p>
+                        </div>
+                        <p>{{description}}</p>
+                        <a href="/record/{{record.id}}">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="col-sm-4"></div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container container-padding">
+    <div class="row d-flex justify-content-between">
+            <div class="col-sm-4">
+                <div class="info_block">
+                    <p>{{user.surname}} {{user.name}}</p>
+                    <div class="info_active d-flex justify-content-around">
+                        <div class="info_item">
+                            <p>Ответов</p>
+                            <p>{{user.answers|length}}</p>
+                        </div>
+                        <div class="info_item">
+                            <p>Лучших ответов</p>
+                            <p>{{user.records|length}}</p>
+                        </div>
+                        <div class="info_item">
+                            <p>Вопросов</p>
+                            <p>{{user.records|length}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if current_user.is_authenticated and current_user.id == user.id%}
+                    <a href="/profile-edit/{{user.id}}" class="btn btn-dark">Редактировать профиль</a>
+                    <br>
+                    <a href="/logout" class="">Выйти</a>
+                {% endif %}
+            </div>
+
+            <div class="col-sm-7">
+                <ul class="nav nav-tabs justify-content-end" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true">Вопросы</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile" aria-selected="false">Ответы</button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                        <div class="container">
+                            {% for record in user.records %}
+                                <div class="row justify-content-center position-relative">
+                                    <div class="col-sm-12 position-static">
+                                        <div class="p-3 record-block">
+                                            <div class="title-record d-flex">
+                                                <p class="mr-2">{{record.user.surname}} {{record.user.name}}</p>
+                                                <p>{{record.title}}</p>
+                                            </div>
+                                            <p>{{record.description[:200]}}</p>
+                                            <a href="/record/{{record.id}}" class="stretched-link">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                        <div class="container">
+                            {% for com in user.answers %}
+                                <div class="row justify-content-center position-relative">
+                                    <div class="col-sm-12 position-static">
+                                        <div class="p-3 record-block">
+                                            <div class="title-record d-flex">
+                                                <p class="mr-2">{{com.record.user.surname}} {{com.record.user.name}}</p>
+                                                <p>{{com.record.title}}</p>
+                                            </div>
+                                            <p>{{com.record.description[:200]}}</p>
+                                            <a href="/record/{{com.record.id}}" class="stretched-link">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</div>
+{% endblock %}

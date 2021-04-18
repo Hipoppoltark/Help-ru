@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container container-padding">
+    <div class="row justify-content-center position-relative">
+            <div class="col-sm-6 position-static">
+                <div class="p-3 record-block">
+                    <div class="title-record d-flex justify-content-between">
+                        <p class="mr-2">{{record.user.surname}} {{record.user.name}}</p>
+                        <p>{{record.title}}</p>
+                        {% if record.is_finished %}
+                            <div class="alert alert-primary" role="alert">
+                                Помощь дана
+                            </div>
+                        {% endif %}
+                    </div>
+                    <p>{{record.description}}</p>
+                    {% if not record.is_finished and current_user.id != record.author and
+                        may_comment and current_user.is_authenticated %}
+                        <a href="/record/{{record.id}}/comment"
+                           class="btn btn-outline-dark btn-sml">Помочь +{{record.cost}}</a>
+                    {% endif %}
+                    {% if current_user.is_authenticated and
+                    current_user.id == record.author and record.is_editable %}
+                        <a href="/record-edit/{{record.id}}"
+                           class="btn btn-outline-dark btn-sml">Редактировать</a>
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+    <h3 class="font-weight-light text-center text-dark mb-5">Ответы</h3>
+    {% for comment in record.comments %}
+        <div class="row justify-content-center position-relative">
+            <div class="col-sm-6 position-static">
+                <div class="p-3 record-block">
+                    <div class="record-block-info d-flex justify-content-between">
+                        <div class="title-record d-flex">
+                            <p class="mr-2">{{comment.user.surname}} {{comment.user.name}}</p>
+                            <p>{{comment.record.title}}</p>
+                        </div>
+
+                        <p>{{comment.estimation}}</p>
+                    </div>
+                    <p style="word-wrap: break-word;">{{comment.comment}}</p>
+                    {% if current_user.id != comment.author %}
+                        <div class="comment-bottom d-flex justify-content-between">
+                            <div class="record-stars d-flex">
+                                <div class="record-star-item" onclick="give_rating(1, {{comment.id}})">
+                                    <img src="{{url_for('static', filename='images/star.png')}}" alt="помощь.ру">
+                                </div>
+                                <div class="record-star-item" onclick="give_rating(2, {{comment.id}})">
+                                    <img src="{{url_for('static', filename='images/star.png')}}" alt="помощь.ру">
+                                </div>
+                                <div class="record-star-item" onclick="give_rating(3, {{comment.id}})">
+                                    <img src="{{url_for('static', filename='images/star.png')}}" alt="помощь.ру">
+                                </div>
+                                <div class="record-star-item" onclick="give_rating(4, {{comment.id}})">
+                                    <img src="{{url_for('static', filename='images/star.png')}}" alt="помощь.ру">
+                                </div>
+                                <div class="record-star-item" onclick="give_rating(5, {{comment.id}})">
+                                    <img src="{{url_for('static', filename='images/star.png')}}" alt="помощь.ру">
+                                </div>
+                            </div>
+
+                            <div onclick="make_complaint({{comment.id}})" class="complaint">
+                                <i class="fa fa-flag-o flag-item" aria-hidden="true"></i>
+                            </div>
+                            <div class="message-complaint font-weight-medium text-dark"></div>
+                        </div>
+                    {% endif %}
+                    {% if current_user.is_authenticated and current_user.id == comment.author and record.is_editable %}
+                        <a href="/record/comments-edit/{{comment.id}}"
+                           class="btn btn-outline-dark btn-sml">Редактировать</a>
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
