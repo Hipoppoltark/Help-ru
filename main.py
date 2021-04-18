@@ -28,6 +28,7 @@ from celery import Celery
 import celeryconfig
 
 import requests
+import os
 
 import uuid
 import hashlib
