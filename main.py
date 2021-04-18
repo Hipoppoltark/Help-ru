@@ -1,3 +1,5 @@
+import os
+
 from api import record_resources
 from flask import Flask, flash
 from flask import url_for, request, render_template, session, abort
@@ -28,7 +30,6 @@ from celery import Celery
 import celeryconfig
 
 import requests
-import os
 
 import uuid
 import hashlib
@@ -173,7 +174,7 @@ def add_record():
     form = RecordForm()
     if form.validate_on_submit():
         response = requests.post(
-            'http://127.0.0.1:5000/api/records',
+            'http://help-our-ru.herokuapp.com/api/records',
             headers={'content-type': 'application/json; charset=utf-8'},
             json={'title': form.title.data,
                   'description': form.description.data,
