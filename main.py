@@ -96,8 +96,8 @@ def celery_processing_complaint(comment_id):
     db_session.global_init("postgresql://yzaskcyajggyta:11146148bccbc41403054de1201a8af3a7b87a5d0787e79a1fa85c356aa5ee9f@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/d78b78ilt2higb")
     session = db_session.create_session()
     comment = session.query(Comment).get(comment_id)
-    comment_points = comment.cost
     record = session.query(Record).get(comment.record_id)
+    comment_points = record.cost
     author_comment = session.query(User).get(comment.author)
     if len(comment.complaints) >= len(comment.ratings):
         session.delete(comment)
