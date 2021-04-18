@@ -71,9 +71,10 @@ def celery_editable_task(record_id):
     """Фоновая задача. Через n время (после того, как запись считается закрытой)
        запрщает редактировать запись и все комментарии к ней"""
     print(1)
-    db_session.global_init("db/help.db")
+    db_session.global_init(url_for('db', filename='help.db))
     session = db_session.create_session()
     record = session.query(Record).get(record_id)
+    print(session)
     record.is_editable = False
     session.commit()
     session.close()
