@@ -75,7 +75,7 @@ def celery_editable_task(record_id):
     """Фоновая задача. Через n время (после того, как запись считается закрытой)
        запрщает редактировать запись и все комментарии к ней"""
     print(1)
-    db_session.global_init('db/help.db')
+    db_session.global_init('postgresql://yzaskcyajggyta:11146148bccbc41403054de1201a8af3a7b87a5d0787e79a1fa85c356aa5ee9f@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/d78b78ilt2higb')
     print(2)
     session = db_session.create_session()
     print(3)
@@ -93,7 +93,7 @@ def celery_processing_complaint(comment_id):
     """Фоновая задача обработки жалобы (в течение n времени задача запускается и решает
        нужно ли удалять комментарий или нет"""
     print(2)
-    db_session.global_init("db/help.db")
+    db_session.global_init("postgresql://yzaskcyajggyta:11146148bccbc41403054de1201a8af3a7b87a5d0787e79a1fa85c356aa5ee9f@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/d78b78ilt2higb")
     session = db_session.create_session()
     comment = session.query(Comment).get(comment_id)
     comment_points = comment.cost
