@@ -70,6 +70,7 @@ login_manager.init_app(app)
 def celery_editable_task(record_id):
     """Фоновая задача. Через n время (после того, как запись считается закрытой)
        запрщает редактировать запись и все комментарии к ней"""
+    print(1)
     db_session.global_init("db/help.db")
     session = db_session.create_session()
     record = session.query(Record).get(record_id)
@@ -83,6 +84,7 @@ def celery_editable_task(record_id):
 def celery_processing_complaint(comment_id):
     """Фоновая задача обработки жалобы (в течение n времени задача запускается и решает
        нужно ли удалять комментарий или нет"""
+    print(2)
     db_session.global_init("db/help.db")
     session = db_session.create_session()
     comment = session.query(Comment).get(comment_id)
