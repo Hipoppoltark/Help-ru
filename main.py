@@ -76,7 +76,7 @@ def celery_editable_task(record_id):
     session = db_session.create_session()
     print(3)
     record = session.query(Record).get(record_id)
-    print(session)
+    print(record)
     record.is_editable = False
     session.commit()
     session.close()
