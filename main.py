@@ -53,7 +53,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 api = Api(app)
 client = Celery(app.name)
 client.config_from_object("celeryconfig")
-db_session.global_init('postgres://ovmpfzjbdoyavl:afc4e2afb18ba1de3974e1d62a35fb4ea096fffe5aedfef6b4032fd4d9480575@ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/dc2r6go0h003af')
+db_session.global_init('postgresql://ovmpfzjbdoyavl:afc4e2afb18ba1de3974e1d62a35fb4ea096fffe5aedfef6b4032fd4d9480575@ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/dc2r6go0h003af')
 from data.db_session import SqlAlchemyBase as db
 migrate = Migrate(app, db)
 
@@ -75,7 +75,7 @@ def celery_editable_task(record_id):
     """Фоновая задача. Через n время (после того, как запись считается закрытой)
        запрщает редактировать запись и все комментарии к ней"""
     print(1)
-    db_session.global_init('postgres://ovmpfzjbdoyavl:afc4e2afb18ba1de3974e1d62a35fb4ea096fffe5aedfef6b4032fd4d9480575@ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/dc2r6go0h003af')
+    db_session.global_init('postgresql://ovmpfzjbdoyavl:afc4e2afb18ba1de3974e1d62a35fb4ea096fffe5aedfef6b4032fd4d9480575@ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/dc2r6go0h003af')
     print(2)
     session = db_session.create_session()
     print(3)
@@ -93,7 +93,7 @@ def celery_processing_complaint(comment_id):
     """Фоновая задача обработки жалобы (в течение n времени задача запускается и решает
        нужно ли удалять комментарий или нет"""
     print(2)
-    db_session.global_init('postgres://ovmpfzjbdoyavl:afc4e2afb18ba1de3974e1d62a35fb4ea096fffe5aedfef6b4032fd4d9480575@ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/dc2r6go0h003af')
+    db_session.global_init('postgresql://ovmpfzjbdoyavl:afc4e2afb18ba1de3974e1d62a35fb4ea096fffe5aedfef6b4032fd4d9480575@ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/dc2r6go0h003af')
     session = db_session.create_session()
     comment = session.query(Comment).get(comment_id)
     record = session.query(Record).get(comment.record_id)
