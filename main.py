@@ -53,7 +53,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 api = Api(app)
 client = Celery(app.name)
 client.config_from_object("celeryconfig")
-db_session.global_init("postgresql://yzaskcyajggyta:11146148bccbc41403054de1201a8af3a7b87a5d0787e79a1fa85c356aa5ee9f@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/d78b78ilt2higb")
+db_session.global_init('postgres://ovmpfzjbdoyavl:afc4e2afb18ba1de3974e1d62a35fb4ea096fffe5aedfef6b4032fd4d9480575@ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/dc2r6go0h003af')
 from data.db_session import SqlAlchemyBase as db
 migrate = Migrate(app, db)
 
