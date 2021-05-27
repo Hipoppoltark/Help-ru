@@ -9,10 +9,10 @@
                     <div class="p-3 record-block">
                         {% if records %}
                             <div class="title-record d-flex">
-                                <p class="mr-2">{{records[0][0].user.surname}} {{records[0][0].user.name}}</p>
-                                <p>{{records[0][0].title}}</p>
+                                <p class="mr-2">{{records[-1][0].user.surname}} {{records[-1][0].user.name}}</p>
+                                <p>{{records[-1][0].title}}</p>
                             </div>
-                            <p>{{records[0][1]}}</p>
+                            <p>{{records[-1][1]}}</p>
                             <a href="/record/{{records[0][0].id}}">Go somewhere</a>
                         {% endif %}
                     </div>
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-        {% for (record, description) in records[1:] %}
+        {% for (record, description) in records[-2:-11:-1] %}
             <div class="row justify-content-center position-relative">
                 <div class="col-sm-6 position-static">
                     <div class="p-3 record-block">
