@@ -120,6 +120,7 @@ def main():
             records.append((record, record.description[:250]))
         param = {}
         param['title'] = 'Работы'
+        records.sort(key=lambda x: x[0].id)
         param['records'] = records
         return render_template('index.html', **param)
     else:
